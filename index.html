@@ -239,7 +239,7 @@
   .tag-toxic      { background: #EDE8F8; color: #4A2D8A; }
   .tag-irritant   { background: #E8F4E8; color: #1E5E1E; }
   .tag-oxidizer   { background: #FFF0D4; color: #7A4500; }
-  .tag-sensitization   { background: #C0C5CE; color: #343D46; }
+  .tag-sensitization { background: #E8E8E8; color: #1C1C1A; }
   .tag-compressed { background: #E3EDF8; color: #1A3D6B; }
   .mat-arrow {
     margin-top: 2px;
@@ -366,9 +366,9 @@ const MATERIALS = [
   { zh: "氮氣", en: "Nitrogen", cas: "7727-37-9", category: "gas", icon: "🔵", iconBg: "#E3EDF8", tags: ["compressed"], pdf: "./sds/N2.pdf" },
   { zh: "氧氣", en: "Oxygen", cas: "7782-44-7", category: "gas", icon: "🔵", iconBg: "#E3EDF8", tags: ["compressed"], pdf: "./sds/O2.pdf" },
   { zh: "氦氣", en: "Helium", cas: "7440-59-7", category: "gas", icon: "🔵", iconBg: "#E3EDF8", tags: ["compressed"], pdf: "./sds/He.pdf" },
-  { zh: "乙醇", en: "Ethanol", cas: "64-17-5", category: "organic", icon: "🧪", iconBg: "#FEF3E2", tags: ["flammable"], pdf: "./sds/Ethanol.pdf" },
-  { zh: "異丙醇", en: "Isopropyl alcohol", cas: "67-63-0", category: "organic", icon: "🧪", iconBg: "#FEF3E2", tags: ["flammable"], pdf: "./sds/IPA.pdf" },
-  { zh: "丙酮", en: "Aceton", cas: "67-64-1", category: "organic", icon: "🧪", iconBg: "#FEF3E2", tags: ["flammable"], pdf: "./sds/ACE.pdf" },
+  { zh: "乙醇", en: "Ethanol", cas: "64-17-5", category: "organic", icon: "🧪", iconBg: "#FEF3E2", tags: ["flammable","irritant"], pdf: "./sds/Ethanol.pdf" },
+  { zh: "異丙醇", en: "Isopropyl alcohol", cas: "67-63-0", category: "organic", icon: "🧪", iconBg: "#FEF3E2", tags: ["flammable","toxic","irritant"], pdf: "./sds/IPA.pdf" },
+  { zh: "丙酮", en: "Aceton", cas: "67-64-1", category: "organic", icon: "🧪", iconBg: "#FEF3E2", tags: ["flammable","toxic","irritant"], pdf: "./sds/ACE.pdf" },
   
 ];
 
@@ -385,7 +385,7 @@ const TAG_LABELS = {
   toxic:      { zh: "毒性", en: "Toxic" },
   irritant:   { zh: "刺激", en: "Irritant" },
   oxidizer:   { zh: "氧化性", en: "Oxidizer" },
-  sensitization:   { zh: "過敏", en: "Sensitization" },
+  sensitization: { zh: "過敏", en: "Sensitization" },
   compressed: { zh: "壓縮氣體", en: "Compressed Gas" }
 };
 
