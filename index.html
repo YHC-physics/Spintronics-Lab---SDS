@@ -314,116 +314,56 @@
    2. 新增材料時，複製一個物件並修改欄位即可
    ──────────────────────────────────────────────────────────── */
 const MATERIALS = [
-  {
-    zh: "乙醇",
-    en: "Ethanol",
-    cas: "64-17-5",
-    category: "organic",
-    icon: "🧪",
-    iconBg: "#FEF3E2",
-    tags: ["flammable"],
-    pdf: "./sds/ethanol.pdf"
-  },
-  {
-    zh: "丙酮",
-    en: "Acetone",
-    cas: "67-64-1",
-    category: "organic",
-    icon: "🧪",
-    iconBg: "#FEF3E2",
-    tags: ["flammable", "irritant"],
-    pdf: "./sds/acetone.pdf"
-  },
-  {
-    zh: "甲醇",
-    en: "Methanol",
-    cas: "67-56-1",
-    category: "organic",
-    icon: "🧪",
-    iconBg: "#FEF3E2",
-    tags: ["flammable", "toxic"],
-    pdf: "./sds/methanol.pdf"
-  },
-  {
-    zh: "二氯甲烷",
-    en: "Dichloromethane (DCM)",
-    cas: "75-09-2",
-    category: "organic",
-    icon: "🧪",
-    iconBg: "#FEF3E2",
-    tags: ["toxic", "irritant"],
-    pdf: "./sds/dcm.pdf"
-  },
-  {
-    zh: "鹽酸",
-    en: "Hydrochloric Acid",
-    cas: "7647-01-0",
-    category: "acid",
-    icon: "⚗️",
-    iconBg: "#FDE8E8",
-    tags: ["corrosive"],
-    pdf: "./sds/hcl.pdf"
-  },
-  {
-    zh: "硫酸",
-    en: "Sulfuric Acid",
-    cas: "7664-93-9",
-    category: "acid",
-    icon: "⚗️",
-    iconBg: "#FDE8E8",
-    tags: ["corrosive", "oxidizer"],
-    pdf: "./sds/h2so4.pdf"
-  },
-  {
-    zh: "氫氧化鈉",
-    en: "Sodium Hydroxide (NaOH)",
-    cas: "1310-73-2",
-    category: "acid",
-    icon: "⚗️",
-    iconBg: "#FDE8E8",
-    tags: ["corrosive"],
-    pdf: "./sds/naoh.pdf"
-  },
-  {
-    zh: "氮氣",
-    en: "Nitrogen Gas (N₂)",
-    cas: "7727-37-9",
-    category: "gas",
-    icon: "🔵",
-    iconBg: "#E3EDF8",
-    tags: ["compressed"],
-    pdf: "./sds/n2.pdf"
-  },
-  {
-    zh: "氬氣",
-    en: "Argon Gas (Ar)",
-    cas: "7440-37-1",
-    category: "gas",
-    icon: "🔵",
-    iconBg: "#E3EDF8",
-    tags: ["compressed"],
-    pdf: "./sds/argon.pdf"
-  },
-  {
-    zh: "氯化鐵(III)",
-    en: "Iron(III) Chloride",
-    cas: "7705-08-0",
-    category: "metal",
-    icon: "🔬",
-    iconBg: "#EDE8F8",
-    tags: ["corrosive", "irritant"],
-    pdf: "./sds/fecl3.pdf"
-  },
-  {
-    zh: "硝酸銀",
-    en: "Silver Nitrate",
-    cas: "7761-88-8",
-    category: "metal",
-    icon: "🔬",
-    iconBg: "#EDE8F8",
-    tags: ["oxidizer", "corrosive"],
-    pdf: "./sds/agno3.pdf"
-  }
+ const MATERIALS = [
+  // ── 金屬粉末 ──
+  { zh: "銀", en: "Silver", cas: "7440-22-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/ag.pdf" },
+  { zh: "鋁", en: "Aluminum", cas: "7429-90-5", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/al.pdf" },
+  { zh: "金", en: "Gold", cas: "7440-57-5", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: [], pdf: "./sds/au.pdf" },
+  { zh: "硼", en: "Boron", cas: "7440-42-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/b.pdf" },
+  { zh: "鉍", en: "Bismuth", cas: "7440-69-9", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: [], pdf: "./sds/bi.pdf" },
+  { zh: "三氧化二鉍", en: "Bismuth(III) Oxide", cas: "1304-76-3", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/bi2o3.pdf" },
+  { zh: "硝酸鉍", en: "Bismuth(III) Nitrate Pentahydrate", cas: "10035-06-0", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["oxidizer", "corrosive"], pdf: "./sds/bi-no3.pdf" },
+  { zh: "鉻", en: "Chromium", cas: "7440-47-3", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/cr.pdf" },
+  { zh: "銅", en: "Copper", cas: "7440-50-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/cu.pdf" },
+  { zh: "石墨坩堝", en: "Graphite Crucible", cas: "7782-42-5", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: [], pdf: "./sds/graphite.pdf" },
+  { zh: "碳", en: "Carbon", cas: "7440-44-0", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: [], pdf: "./sds/c.pdf" },
+  { zh: "鈷", en: "Cobalt", cas: "7440-48-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/co.pdf" },
+  { zh: "碳酸鈣", en: "Calcium Carbonate", cas: "471-34-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/caco3.pdf" },
+  { zh: "鏑", en: "Dysprosium", cas: "7429-91-6", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/dy.pdf" },
+  { zh: "鐵", en: "Iron", cas: "7439-89-6", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/fe.pdf" },
+  { zh: "四氧化三鐵", en: "Iron(II,III) Oxide", cas: "1317-61-9", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/fe3o4.pdf" },
+  { zh: "硝酸鐵", en: "Iron(III) Nitrate Nonahydrate", cas: "7782-61-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["oxidizer", "corrosive"], pdf: "./sds/fe-no3.pdf" },
+  { zh: "鍺", en: "Germanium", cas: "7440-56-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/ge.pdf" },
+  { zh: "氧化釓", en: "Gadolinium(III) Oxide", cas: "12064-62-9", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/gd2o3.pdf" },
+  { zh: "氧化鈥", en: "Holmium(III) Oxide", cas: "12055-62-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/ho2o3.pdf" },
+  { zh: "氧化鉿", en: "Hafnium(IV) Oxide", cas: "12055-23-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/hfo2.pdf" },
+  { zh: "銦", en: "Indium", cas: "7440-74-6", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/in.pdf" },
+  { zh: "氧化鎦", en: "Lutetium(III) Oxide", cas: "12032-20-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/lu2o3.pdf" },
+  { zh: "錳", en: "Manganese", cas: "7439-96-5", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/mn.pdf" },
+  { zh: "碳酸錳", en: "Manganese(II) Carbonate", cas: "598-62-9", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/mnco3.pdf" },
+  { zh: "鎂", en: "Magnesium", cas: "7439-95-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/mg.pdf" },
+  { zh: "鉬", en: "Molybdenum", cas: "7439-98-7", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/mo.pdf" },
+  { zh: "鎳", en: "Nickel", cas: "7440-02-0", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/ni.pdf" },
+  { zh: "氧化鎳", en: "Nickel(II) Oxide", cas: "1313-99-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/nio.pdf" },
+  { zh: "碳酸鈉", en: "Sodium Carbonate", cas: "497-19-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/na2co3.pdf" },
+  { zh: "鈀", en: "Palladium", cas: "7440-05-3", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/pd.pdf" },
+  { zh: "鉛", en: "Lead", cas: "7439-92-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/pb.pdf" },
+  { zh: "氧化鉛", en: "Lead(II) Oxide", cas: "1317-36-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/pbo.pdf" },
+  { zh: "二氧化釕", en: "Ruthenium(IV) Oxide", cas: "12036-10-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/ruo2.pdf" },
+  { zh: "銻", en: "Antimony", cas: "7440-36-0", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/sb.pdf" },
+  { zh: "矽", en: "Silicon", cas: "7440-21-3", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/si.pdf" },
+  { zh: "二氧化矽", en: "Silicon Dioxide", cas: "7631-86-9", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/sio2.pdf" },
+  { zh: "錫", en: "Tin", cas: "7440-31-5", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: [], pdf: "./sds/sn.pdf" },
+  { zh: "碳酸鍶", en: "Strontium Carbonate", cas: "1633-05-2", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/srco3.pdf" },
+  { zh: "鈦", en: "Titanium", cas: "7440-32-6", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/ti.pdf" },
+  { zh: "氧化銩", en: "Thulium(III) Oxide", cas: "12036-44-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/tm2o3.pdf" },
+  { zh: "釩", en: "Vanadium", cas: "7440-62-2", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/v.pdf" },
+  { zh: "五氧化二釩", en: "Vanadium(V) Oxide", cas: "1314-62-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/v2o5.pdf" },
+  { zh: "鎢", en: "Tungsten", cas: "7440-33-7", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/w.pdf" },
+  { zh: "氧化釔", en: "Yttrium(III) Oxide", cas: "1314-36-9", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/y2o3.pdf" },
+  { zh: "鋯", en: "Zirconium", cas: "7440-67-7", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/zr.pdf" },
+  { zh: "二氧化鋯", en: "Zirconium Dioxide", cas: "1314-23-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/zro2.pdf" },
+];
 ];
 
 const CATEGORIES = {
