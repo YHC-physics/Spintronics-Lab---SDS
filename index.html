@@ -239,6 +239,7 @@
   .tag-toxic      { background: #EDE8F8; color: #4A2D8A; }
   .tag-irritant   { background: #E8F4E8; color: #1E5E1E; }
   .tag-oxidizer   { background: #FFF0D4; color: #7A4500; }
+  .tag-sensitization   { background: #FFF0D4; color: #7A4500; }
   .tag-compressed { background: #E3EDF8; color: #1A3D6B; }
   .mat-arrow {
     margin-top: 2px;
@@ -325,7 +326,7 @@ const MATERIALS = [
   { zh: "鉻", en: "Chromium", cas: "7440-47-3", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/Cr.pdf" },
   { zh: "銅", en: "Copper", cas: "7440-50-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/Cu.pdf" },
   { zh: "碳", en: "Carbon", cas: "7440-44-0", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: [], pdf: "./sds/C.pdf" },
-  { zh: "鈷", en: "Cobalt", cas: "7440-48-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/Co.pdf" },
+  { zh: "鈷", en: "Cobalt", cas: "7440-48-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic","sensitization"], pdf: "./sds/Co.pdf" },
   { zh: "碳酸鈣", en: "Calcium Carbonate", cas: "471-34-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/CaCo3.pdf" },
   { zh: "鏑", en: "Dysprosium", cas: "7429-91-6", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/Dy.pdf" },
   { zh: "鐵", en: "Iron", cas: "7439-89-6", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/Fe.pdf" },
@@ -341,8 +342,8 @@ const MATERIALS = [
   { zh: "碳酸錳", en: "Manganese(II) Carbonate", cas: "598-62-9", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: [], pdf: "./sds/MnCO3.pdf" },
   { zh: "鎂", en: "Magnesium", cas: "7439-95-4", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable"], pdf: "./sds/Mg.pdf" },
   { zh: "鉬", en: "Molybdenum", cas: "7439-98-7", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic","flammable"], pdf: "./sds/Mo.pdf" },
-  { zh: "鎳", en: "Nickel", cas: "7440-02-0", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic","flammable"], pdf: "./sds/Ni.pdf" },
-  { zh: "氧化鎳", en: "Nickel(II) Oxide", cas: "1313-99-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/NiO.pdf" },
+  { zh: "鎳", en: "Nickel", cas: "7440-02-0", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic","flammable","sensitization"], pdf: "./sds/Ni.pdf" },
+  { zh: "氧化鎳", en: "Nickel(II) Oxide", cas: "1313-99-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic","sensitization"], pdf: "./sds/NiO.pdf" },
   { zh: "碳酸鈉", en: "Sodium Carbonate", cas: "497-19-8", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["irritant"], pdf: "./sds/Na2CO3.pdf" },
   { zh: "鈀", en: "Palladium", cas: "7440-05-3", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["flammable","irritant"], pdf: "./sds/Pd.pdf" },
   { zh: "鉛", en: "Lead", cas: "7439-92-1", category: "metal", icon: "🔬", iconBg: "#EDE8F8", tags: ["toxic"], pdf: "./sds/Pb.pdf" },
@@ -384,6 +385,7 @@ const TAG_LABELS = {
   toxic:      { zh: "毒性", en: "Toxic" },
   irritant:   { zh: "刺激", en: "Irritant" },
   oxidizer:   { zh: "氧化性", en: "Oxidizer" },
+  sensitization:   { zh: "過敏", en: "Sensitization" },
   compressed: { zh: "壓縮氣體", en: "Compressed Gas" }
 };
 
