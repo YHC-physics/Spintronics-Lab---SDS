@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>實驗室安全資料表 | Lab Safety Data Sheets</title>
+<style>
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --border: #E2E0D8;
+    --accent: #1A4D8F;
+    --accent-light: #E8EFF8;
+    --accent2: #C84A18;
+    --text-primary: #1C1C1A;
+    --text-secondary: #6B6A65;
+    --text-muted: #9B9A96;
+    --radius: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.05);
+    --font: 'Helvetica Neue', '微軟正黑體', 'Microsoft JhengHei', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+  header {
+    background: var(--accent);
+    color: #fff;
+    padding: 0;
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 28px 24px 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .header-title h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+  }
+  .header-title p {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+  }
+  .header-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    color: rgba(255,255,255,0.9);
+  }
+  .search-bar-wrap {
+    background: rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .search-bar-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .search-input-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+  }
+  .search-input-wrap svg {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  input[type="search"] {
+    width: 100%;
+    padding: 9px 12px 9px 34px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 7px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 14px;
+    font-family: var(--font);
+    outline: none;
+    transition: background 0.2s;
+  }
+  input[type="search"]::placeholder { color: rgba(255,255,255,0.55); }
+  input[type="search"]:focus { background: rgba(255,255,255,0.22); }
+  select {
+    padding: 9px 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 7px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 13px;
+    font-family: var(--font);
+    outline: none;
+    cursor: pointer;
+  }
+  select option { color: var(--text-primary); background: #fff; }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px 24px 60px;
+  }
+  .stats-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .stat-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .stat-pill strong { color: var(--accent); }
+  .category-section { margin-bottom: 32px; }
+  .category-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .category-label .cat-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .category-label h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .category-label .cat-en {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .cat-count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2px 8px;
+  }
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .material-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: box-shadow 0.18s, border-color 0.18s, transform 0.12s;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .material-card:hover {
+    box-shadow: var(--shadow);
+    border-color: #B8C8DF;
+    transform: translateY(-1px);
+  }
+  .material-card:active { transform: translateY(0); }
+  .mat-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .mat-info { flex: 1; min-width: 0; }
+  .mat-name-zh {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+  .mat-name-en {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mat-cas {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 5px;
+    font-family: monospace;
+    letter-spacing: 0.03em;
+  }
+  .mat-tags {
+    display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px;
+  }
+  .mat-tag {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .tag-flammable  { background: #FEF3E2; color: #9B4B00; }
+  .tag-corrosive  { background: #FDE8E8; color: #8B1E1E; }
+  .tag-toxic      { background: #EDE8F8; color: #4A2D8A; }
+  .tag-irritant   { background: #E8F4E8; color: #1E5E1E; }
+  .tag-oxidizer   { background: #FFF0D4; color: #7A4500; }
+  .tag-compressed { background: #E3EDF8; color: #1A3D6B; }
+  .mat-arrow {
+    margin-top: 2px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+  .empty-state p { margin-top: 8px; font-size: 14px; }
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+  @media (max-width: 500px) {
+    .materials-grid { grid-template-columns: 1fr 1fr; }
+    .material-card { padding: 12px; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>實驗室安全資料表</h1>
+      <p>Laboratory Safety Data Sheets (SDS)</p>
+    </div>
+    <div class="header-badge">GHS / SDS · Rev. 2025</div>
+  </div>
+  <div class="search-bar-wrap">
+    <div class="search-bar-inner">
+      <div class="search-input-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="searchInput" placeholder="搜尋材料名稱、CAS 號碼… Search by name or CAS…">
+      </div>
+      <select id="catFilter">
+        <option value="">所有類別 All</option>
+        <option value="organic">有機溶劑 Organic Solvents</option>
+        <option value="acid">酸鹼試劑 Acids &amp; Bases</option>
+        <option value="gas">氣體 Gases</option>
+        <option value="metal">金屬/無機鹽類 Metals &amp; Salts</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="stats-row" id="statsRow">
+    <!-- filled by JS -->
+  </div>
+  <div id="materialContainer">
+    <!-- filled by JS -->
+  </div>
+</main>
+
+<footer>
+  如資料有誤或需更新，請聯繫實驗室安全管理員 · For updates contact the lab safety officer
+</footer>
+
+<script>
+/* ─── 材料資料庫 ─────────────────────────────────────────────
+   修改說明：
+   1. 將 pdf 欄位改為你的 PDF 實際路徑（例如 "./sds/ethanol.pdf"）
+   2. 新增材料時，複製一個物件並修改欄位即可
+   ──────────────────────────────────────────────────────────── */
+const MATERIALS = [
+  {
+    zh: "乙醇",
+    en: "Ethanol",
+    cas: "64-17-5",
+    category: "organic",
+    icon: "🧪",
+    iconBg: "#FEF3E2",
+    tags: ["flammable"],
+    pdf: "./sds/ethanol.pdf"
+  },
+  {
+    zh: "丙酮",
+    en: "Acetone",
+    cas: "67-64-1",
+    category: "organic",
+    icon: "🧪",
+    iconBg: "#FEF3E2",
+    tags: ["flammable", "irritant"],
+    pdf: "./sds/acetone.pdf"
+  },
+  {
+    zh: "甲醇",
+    en: "Methanol",
+    cas: "67-56-1",
+    category: "organic",
+    icon: "🧪",
+    iconBg: "#FEF3E2",
+    tags: ["flammable", "toxic"],
+    pdf: "./sds/methanol.pdf"
+  },
+  {
+    zh: "二氯甲烷",
+    en: "Dichloromethane (DCM)",
+    cas: "75-09-2",
+    category: "organic",
+    icon: "🧪",
+    iconBg: "#FEF3E2",
+    tags: ["toxic", "irritant"],
+    pdf: "./sds/dcm.pdf"
+  },
+  {
+    zh: "鹽酸",
+    en: "Hydrochloric Acid",
+    cas: "7647-01-0",
+    category: "acid",
+    icon: "⚗️",
+    iconBg: "#FDE8E8",
+    tags: ["corrosive"],
+    pdf: "./sds/hcl.pdf"
+  },
+  {
+    zh: "硫酸",
+    en: "Sulfuric Acid",
+    cas: "7664-93-9",
+    category: "acid",
+    icon: "⚗️",
+    iconBg: "#FDE8E8",
+    tags: ["corrosive", "oxidizer"],
+    pdf: "./sds/h2so4.pdf"
+  },
+  {
+    zh: "氫氧化鈉",
+    en: "Sodium Hydroxide (NaOH)",
+    cas: "1310-73-2",
+    category: "acid",
+    icon: "⚗️",
+    iconBg: "#FDE8E8",
+    tags: ["corrosive"],
+    pdf: "./sds/naoh.pdf"
+  },
+  {
+    zh: "氮氣",
+    en: "Nitrogen Gas (N₂)",
+    cas: "7727-37-9",
+    category: "gas",
+    icon: "🔵",
+    iconBg: "#E3EDF8",
+    tags: ["compressed"],
+    pdf: "./sds/n2.pdf"
+  },
+  {
+    zh: "氬氣",
+    en: "Argon Gas (Ar)",
+    cas: "7440-37-1",
+    category: "gas",
+    icon: "🔵",
+    iconBg: "#E3EDF8",
+    tags: ["compressed"],
+    pdf: "./sds/argon.pdf"
+  },
+  {
+    zh: "氯化鐵(III)",
+    en: "Iron(III) Chloride",
+    cas: "7705-08-0",
+    category: "metal",
+    icon: "🔬",
+    iconBg: "#EDE8F8",
+    tags: ["corrosive", "irritant"],
+    pdf: "./sds/fecl3.pdf"
+  },
+  {
+    zh: "硝酸銀",
+    en: "Silver Nitrate",
+    cas: "7761-88-8",
+    category: "metal",
+    icon: "🔬",
+    iconBg: "#EDE8F8",
+    tags: ["oxidizer", "corrosive"],
+    pdf: "./sds/agno3.pdf"
+  }
+];
+
+const CATEGORIES = {
+  organic: { zhLabel: "有機溶劑", enLabel: "Organic Solvents", color: "#D4860F" },
+  acid:    { zhLabel: "酸鹼試劑", enLabel: "Acids & Bases",    color: "#B01E1E" },
+  gas:     { zhLabel: "氣體",     enLabel: "Gases",            color: "#1A4D8F" },
+  metal:   { zhLabel: "金屬 / 無機鹽類", enLabel: "Metals & Salts", color: "#4A2D8A" }
+};
+
+const TAG_LABELS = {
+  flammable:  { zh: "易燃", en: "Flammable" },
+  corrosive:  { zh: "腐蝕", en: "Corrosive" },
+  toxic:      { zh: "毒性", en: "Toxic" },
+  irritant:   { zh: "刺激", en: "Irritant" },
+  oxidizer:   { zh: "氧化", en: "Oxidizer" },
+  compressed: { zh: "壓縮氣體", en: "Compressed Gas" }
+};
+
+function renderStats(filtered, total) {
+  const row = document.getElementById('statsRow');
+  row.innerHTML = `
+    <div class="stat-pill">共 <strong>${filtered}</strong> 項材料 &nbsp;·&nbsp; <strong>${filtered}</strong> materials</div>
+    ${filtered < total ? `<div class="stat-pill">篩選結果 Filtered from ${total}</div>` : ''}
+  `;
+}
+
+function renderCards(items) {
+  const container = document.getElementById('materialContainer');
+  if (!items.length) {
+    container.innerHTML = `<div class="empty-state">
+      <div style="font-size:36px">🔍</div>
+      <p>找不到符合的材料 · No matching materials found</p>
+    </div>`;
+    renderStats(0, MATERIALS.length);
+    return;
+  }
+
+  // Group by category in defined order
+  const order = ['organic', 'acid', 'gas', 'metal'];
+  const grouped = {};
+  items.forEach(m => {
+    if (!grouped[m.category]) grouped[m.category] = [];
+    grouped[m.category].push(m);
+  });
+
+  let html = '';
+  order.forEach(cat => {
+    if (!grouped[cat]) return;
+    const info = CATEGORIES[cat];
+    html += `
+    <div class="category-section">
+      <div class="category-label">
+        <span class="cat-dot" style="background:${info.color}"></span>
+        <h2>${info.zhLabel}</h2>
+        <span class="cat-en">${info.enLabel}</span>
+        <span class="cat-count">${grouped[cat].length}</span>
+      </div>
+      <div class="materials-grid">
+        ${grouped[cat].map(m => cardHTML(m)).join('')}
+      </div>
+    </div>`;
+  });
+
+  container.innerHTML = html;
+  renderStats(items.length, MATERIALS.length);
+}
+
+function cardHTML(m) {
+  const tagHtml = m.tags.map(t =>
+    `<span class="mat-tag tag-${t}">${TAG_LABELS[t].zh}</span>`
+  ).join('');
+
+  return `
+  <a class="material-card" href="${m.pdf}" target="_blank" rel="noopener"
+     aria-label="${m.zh} (${m.en}) SDS PDF">
+    <div class="mat-icon" style="background:${m.iconBg}">${m.icon}</div>
+    <div class="mat-info">
+      <div class="mat-name-zh">${m.zh}</div>
+      <div class="mat-name-en">${m.en}</div>
+      <div class="mat-cas">CAS ${m.cas}</div>
+      <div class="mat-tags">${tagHtml}</div>
+    </div>
+    <div class="mat-arrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </div>
+  </a>`;
+}
+
+function filterAndRender() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const cat = document.getElementById('catFilter').value;
+
+  const filtered = MATERIALS.filter(m => {
+    const matchCat = !cat || m.category === cat;
+    const matchQ = !q ||
+      m.zh.toLowerCase().includes(q) ||
+      m.en.toLowerCase().includes(q) ||
+      m.cas.includes(q);
+    return matchCat && matchQ;
+  });
+
+  renderCards(filtered);
+}
+
+document.getElementById('searchInput').addEventListener('input', filterAndRender);
+document.getElementById('catFilter').addEventListener('change', filterAndRender);
+filterAndRender();
+</script>
+</body>
+</html>
