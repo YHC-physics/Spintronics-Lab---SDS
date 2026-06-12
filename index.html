@@ -290,6 +290,7 @@
         <option value="acid">酸鹼試劑 Acids &amp; Bases</option>
         <option value="gas">氣體 Gases</option>
         <option value="metal">金屬/無機鹽類 Metals &amp; Salts</option>
+        <option value="target">靶材 Sputtering Targets</option>
       </select>
     </div>
   </div>
@@ -376,7 +377,8 @@ const CATEGORIES = {
   organic: { zhLabel: "有機溶劑", enLabel: "Organic Solvents", color: "#D4860F" },
   acid:    { zhLabel: "酸鹼試劑", enLabel: "Acids & Bases",    color: "#B01E1E" },
   gas:     { zhLabel: "氣體",     enLabel: "Gases",            color: "#1A4D8F" },
-  metal:   { zhLabel: "金屬 / 無機鹽類", enLabel: "Metals & Salts", color: "#4A2D8A" }
+  metal:   { zhLabel: "金屬 / 無機鹽類", enLabel: "Metals & Salts", color: "#4A2D8A" },
+  target:  { zhLabel: "靶材",     enLabel: "Sputtering Targets", color: "#0A6B5E" },
 };
 
 const TAG_LABELS = {
@@ -409,7 +411,7 @@ function renderCards(items) {
   }
 
   // Group by category in defined order
-  const order = ['organic', 'acid', 'gas', 'metal'];
+  const order = ['organic', 'acid', 'gas', 'metal', 'target'];
   const grouped = {};
   items.forEach(m => {
     if (!grouped[m.category]) grouped[m.category] = [];
